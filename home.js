@@ -4,15 +4,16 @@ const todoList = document.querySelector('.todo-list')
 const todoContainer = document.querySelector('.todo-container')
 const todoBtn = document.querySelector('.todo-btn')
 const filterItem = document.querySelector('.filter-content')
+const displayDate = document.querySelector('.date-today')
 
 // Event listener
 // adding todos lists
 todoBtn.addEventListener('click', addTodoList) 
 // delete todos
 todoList.addEventListener('click', deleteCheck)
-// filter the todo
-filterItem.addEventListener('click', filterTask)
-
+// DIsplay a date
+let dateNow = new Date()
+displayDate.innerHTML = dateNow.toDateString()
 // Functions
 function addTodoList(event) {
     event.preventDefault()
@@ -40,7 +41,7 @@ function addTodoList(event) {
     // appending ul to div
     todoList.append(todoItemeDiv)
     // clearing the input value
-    todoInput.value = ""
+    todoInput.value = " "
 }
 
 // creating a delete function
@@ -64,27 +65,6 @@ function deleteCheck(e) {
     }
 }
 
-// filitering functions
-function filterTask(e) {
-    const todos = todoList.childNodes
-    todos.forEach(function(todoItemeDiv) {
-        switch(e.target.value) {
-            case "all":
-                todoItemeDiv.style.display = "flex"
-                break;
-            case "finished":
-                if(todoItemeDiv.classList.contains("finished")) {
-                    todoItemeDiv.style.display = "flex"
-                }
-                else {
-                    todoItemeDiv.style.display = "none"
-                }
-            case "pending":
-                if (!todoItemeDiv.classList.contains("finished")) {
-                    todoItemeDiv.style.display = "flex";
-                } else {
-                    todoItemeDiv.style.display = "none";
-                }    
-        }
-    })
-}
+
+
+
