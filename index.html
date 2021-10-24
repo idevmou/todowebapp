@@ -2,41 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Mouli Sankar">
-    <link rel="stylesheet" href="assets/style.css">
-    <!-- Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>MouTodo's</title>
+    <!-- <title>Todo App JavaScript | CodingNepal</title> -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-    <!-- Todo app header -->
-   <header class="head-style">
-       <h1>MouToDo's Web App</h1>
-   </header>
-   <div class="date-today"></div>
-   <div class="form-todo">
-       <form class="todo-form">
-           <input type="text" class="todo-input" placeholder="Add..">
-           <button class="todo-btn" type="submit">
-            <img src="assets/icons/plus-lg.svg" alt="">
-           </button>
-       </form>
-   </div>
-   <!-- List of tasks or todos -->
-   <div class="todo-container">
-       <ul class="todo-list">
-        <!-- <div class="todo-items">
-            <li></li>
-            <button>Delete</button>
-            <button>Checked</button>
-        </div> Thsi can be created by JS in js file -->
-       </ul>
-   </div>
-   <!-- javaScript linked -->
-    <script src="home.js"></script>
+  <div class="wrapper">
+    <header>Todo App</header>
+    <div class="inputField">
+      <input type="text" placeholder="Add your new todo">
+      <button><i class="fas fa-plus"></i></button>
+    </div>
+    <ul class="todoList">
+      <!-- data are comes from local storage -->
+    </ul>
+    <div class="footer">
+      <span>You have <span class="pendingTasks"></span> pending tasks</span>
+      <button>Clear All</button>
+    </div>
+  </div>
+  <script src="home.js"></script>
 </body>
 </html>
