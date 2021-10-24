@@ -1,179 +1,130 @@
-/* font-family: 'Roboto', sans-serif; */
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
-
-html {
-    font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(90deg, #666670, #a11567);
-    color: whitesmoke;
-    min-height: 100vh;  
+::selection{
+  color: #ffff;
+  background: rgb(142, 73, 232);
 }
-
-header {
-    font-size: 20px;
+body{
+  width: 100%;
+  height: 100vh;
+  /* overflow: hidden; */
+  padding: 10px;
+  background: linear-gradient(to bottom, #68EACC 0%, #497BE8 100%);
 }
-
-header, form {
-    min-height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.wrapper{
+  background: #fff;
+  max-width: 400px;
+  width: 100%;
+  margin: 120px auto;
+  padding: 25px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
 }
-
-form input {
-    border: none;
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-    width: 50%;
-    font-size: 14px;
-    border-radius: 10px;
-    
+.wrapper header{
+  font-size: 30px;
+  font-weight: 600;
 }
-form button {
-    border: none;
-    background-color: blue;
-    border-radius: 0;
-    font-size: 14px;
-    color: whitesmoke;
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 5px;
-    
+.wrapper .inputField{
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  height: 45px;
 }
-
-form button:hover {
-    color: blue;
-    background-color: whitesmoke;
-    cursor: pointer;
-    transition: all 0.5s ease; 
+.inputField input{
+  width: 85%;
+  height: 100%;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 17px;
+  padding-left: 15px;
+  transition: all 0.3s ease;
 }
-
-h1 {
-    background-image: linear-gradient(to right, #92fa09,#ffffff);
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: text;
-    color: transparent;
+.inputField input:focus{
+  border-color: #8E49E8;
 }
-
-.todo-container {
-    display:flex;
-    justify-content: center;
-    align-items: center;
+.inputField button{
+  width: 50px;
+  height: 100%;
+  border: none;
+  color: #fff;
+  margin-left: 5px;
+  font-size: 21px;
+  outline: none;
+  background: #8E49E8;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
-
-.todo-list {
-    min-width: 30%;
-    list-style-type: none;
+.inputField button:hover,
+.footer button:hover{
+  background: #721ce3;
 }
-
-.todo-itemdiv {
-    margin: 5px;
-    background-color: whitesmoke;
-    color: black;
-    font-size: 17px;
-    font-weight: bolder;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 6px;
+.inputField button.active{
+  opacity: 1;
+  pointer-events: auto;
 }
-
-.todo-itemli {
-    flex: 1;
+.wrapper .todoList{
+  max-height: 250px;
+  overflow-y: auto;
 }
-
-.check-btn {
-    background-color:whitesmoke;
-    border: none;
-    color: blue;
-    padding: 5px;
-    cursor: pointer;
-    font-weight: bolder;
+.todoList li{
+  position: relative;
+  list-style: none;
+  height: 45px;
+  line-height: 45px;
+  margin-bottom: 8px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  padding: 0 15px;
+  cursor: default;
+  overflow: hidden;
 }
-
-.delete-btn {
-    color: red;
-    background-color: white;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    font-weight: bolder;
+.todoList li .icon{
+  position: absolute;
+  right: -45px;
+  background: #e74c3c;
+  width: 45px;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-
-.check-btn:hover {
-    color: white;
-    background-color: blue;
+.todoList li:hover .icon{
+  right: 0px;
 }
-
-.delete-btn:hover {
-    color: whitesmoke;
-    background-color: red;
+.wrapper .footer{
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.todo-itemli {
-    padding: 5px 5px;
+.footer button{
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  margin-left: 5px;
+  background: #8E49E8;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.6;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
-
-/* this selector is used to correct the clicking error in delete btn bcz without this only clicking on the background so this used*/
-svg{
-    pointer-events: none;
-}
-
-.checked {
-    text-decoration: line-through;
-    opacity: 0.5;
-    color: green;
-}
-
-.date-today {
-    text-align: center;
-    color: whitesmoke;
-    font-weight: bolder;
-    padding: 0;
-    margin: 0;
-}
-
-select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    border: none;
-    color: rgb(46, 2, 40);
-    font-weight: bolder;
-    background-color: rgb(255, 255, 255);
-    cursor: pointer;
-    width: 10rem;
-    padding: 6px;
-    border-radius: 4px;
-}
-
-.select-item {
-    margin: 3px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* getting arrow type */
-.select-item::after {
-    content: "\25BC";
-    position: absolute;
-    background: rgb(3, 70, 255);
-    top: 0;
-    right: 0;
-    padding: 4px;
-    pointer-events: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-
-.select-item:hover::after {
-    background-color: whitesmoke;
-    color: blue;
+.footer button.active{
+  opacity: 1;
+  pointer-events: auto;
 }
